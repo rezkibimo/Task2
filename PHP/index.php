@@ -15,11 +15,11 @@
     <form class="row g-3">
       <div class="col-auto">
         <label for="formFile" class="form-label">Query Size</label>
-        <input type="text" name="maxLoopSize" id="maxLoopSize" placeholder="10">
+        <input type="text" name="maxLoopSize" id="maxLoopSize" placeholder="e.g 10">
       </div>
       <div class="col-auto">
         <label for="formFile" class="form-label">Category</label>
-        <input type="text" name="categoryFilter" id="categoryFilter" placeholder="Animals">
+        <input type="text" name="categoryFilter" id="categoryFilter" placeholder="e.g Animals">
       </div>
       <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Search</button>
