@@ -14,6 +14,15 @@
   <div class="container">
     <h1>Test</h1>
 
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
     <form name="form" action="" method="get">
       <input type="text" name="maxLoopSize" id="maxLoopSize">
       <input type="text" name="categoryFilter" id="categoryFilter">
@@ -21,15 +30,15 @@
     </form>
 
     <?php
-$i = 0;
-$maxLoopSize = $_GET['maxLoopSize'] - 1;
-$categoryFilter = $_GET['categoryFilter'];
-$url = 'https://api.publicapis.org/entries'; // path to your JSON file
-$data = file_get_contents($url); // put the contents of the file into a variable
-$characters = json_decode($data, true); // decode the JSON feed
-
-echo '<table class="table-responsive table-striped">';
-// foreach($characters['entries'] as $result){
+    $i = 0;
+    $maxLoopSize = $_GET['maxLoopSize'] - 1;
+    $categoryFilter = $_GET['categoryFilter'];
+    $url = 'https://api.publicapis.org/entries'; // path to your JSON file
+    $data = file_get_contents($url); // put the contents of the file into a variable
+    $characters = json_decode($data, true); // decode the JSON feed
+    
+    // echo '<table class="table-responsive table-striped">';
+    // foreach($characters['entries'] as $result){
 // echo '<tr>';
 // echo '<td>'.$result['API'].'</td>';
 // echo '<td>'.$result['Description'].'</td>';
@@ -41,40 +50,55 @@ echo '<table class="table-responsive table-striped">';
 // echo '</tr>';
 // if(++$i > $maxLoopSize) break;
 // }
+    
+    // echo '</table>';
+    
+    ?>
 
-echo '</table>';
-
-?>
-    <table class="table-responsive table-striped">
-      <?php
-foreach ($characters['entries'] as $result): ?>
-      <?php if ($result['Category'] == "$categoryFilter") { ?>
-      <td>
-        <?php echo $result['API']; ?>
-      </td>
-      <td>
-        <?php echo $result['Description']; ?>
-      </td>
-      <td>
-        <?php echo $result['Auth']; ?>
-      </td>
-      <td>
-        <?php echo $result['HTTPS']; ?>
-      </td>
-      <td>
-        <?php echo $result['Cors']; ?>
-      </td>
-      <td>
-        <?php echo $result['Link']; ?>
-      </td>
-      <td>
-        <?php echo $result['Category']; ?>
-      </td>
-      </tr>
-      <?php if (++$i > $maxLoopSize)
-      break;
-  } ?>
-      <?php endforeach; ?>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">API</th>
+          <th scope="col">Description</th>
+          <th scope="col">Auth</th>
+          <th scope="col">HTTPS (1 = Yes)</th>
+          <th scope="col">Cors</th>
+          <th scope="col">Link</th>
+          <th scope="col">Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        foreach ($characters['entries'] as $result): ?>
+        <?php if ($result['Category'] == "$categoryFilter") { ?>
+        <tr>
+          <td>
+            <?php echo $result['API']; ?>
+          </td>
+          <td>
+            <?php echo $result['Description']; ?>
+          </td>
+          <td>
+            <?php echo $result['Auth']; ?>
+          </td>
+          <td>
+            <?php echo $result['HTTPS']; ?>
+          </td>
+          <td>
+            <?php echo $result['Cors']; ?>
+          </td>
+          <td>
+            <?php echo $result['Link']; ?>
+          </td>
+          <td>
+            <?php echo $result['Category']; ?>
+          </td>
+        </tr>
+        <?php if (++$i > $maxLoopSize)
+              break;
+          } ?>
+        <?php endforeach; ?>
+      </tbody>
     </table>
 
   </div>
