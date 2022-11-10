@@ -9,8 +9,14 @@
 
 <h1>Test</h1>
 <div class="container">
-<?php
 
+<form name="form" action="" method="get">
+  <input type="text" name="maxLoopSize" id="subject">
+</form>
+
+<?php
+$i = 0;
+$maxLoopSize = $_GET['maxLoopSize'];
 $url = 'https://api.publicapis.org/entries'; // path to your JSON file
 $data = file_get_contents($url); // put the contents of the file into a variable
 $characters = json_decode($data, true); // decode the JSON feed
@@ -26,6 +32,7 @@ $characters = json_decode($data, true); // decode the JSON feed
         echo '<td>'.$result['Link'].'</td>';
         echo '<td>'.$result['Category'].'<td>';
         echo '</tr>';
+        if(++$i > $maxLoopSize) break;
         }
         echo '</table>';
         
