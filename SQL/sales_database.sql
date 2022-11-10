@@ -11,7 +11,7 @@ CREATE TABLE customerTable (
 );
 
 INSERT INTO customerTable 
-    (customer_id, customer_name) 
+    (customer_id, customer_name, customer_amount, broker_id) 
 VALUES 
     (1, "sam", 3000, 4),
     (2, "john", 4000, 2),
@@ -30,7 +30,7 @@ CREATE TABLE brokerTable (
     PRIMARY KEY (broker_id)
 );
 
-INSERT INTO broker 
+INSERT INTO brokerTable 
     (broker_id, broker_name) 
 VALUES 
     (1, "Ted"),
