@@ -9,25 +9,25 @@
 </head>
 
 <body>
-
-
   <div class="container">
-    <h1>Test</h1>
-
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-    <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-
-    <form name="form" action="" method="get">
-      <input type="text" name="maxLoopSize" id="maxLoopSize">
-      <input type="text" name="categoryFilter" id="categoryFilter">
-      <input type="submit">
+    <br></br>
+    <h1>Entries Finder</h1>
+    <form class="row g-3">
+      <div class="col-auto">
+        <label for="formFile" class="form-label">Query Size</label>
+        <input type="text" name="maxLoopSize" id="maxLoopSize" placeholder="10">
+      </div>
+      <div class="col-auto">
+        <label for="formFile" class="form-label">Category</label>
+        <input type="text" name="categoryFilter" id="categoryFilter" placeholder="Animals">
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Search</button>
+      </div>
     </form>
+
+    <hr>
+    </hr>
 
     <?php
     $i = 0;
